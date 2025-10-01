@@ -8,13 +8,12 @@ I have read the article and honestly, I can only agree and commend Breeze for li
 
 ## Directed Acyclic Graph (DAG)
 
-I decided to start creating the DAG (Figure 0.1 - DAG Breeze App) by modelling the general steps of the Breeze algorithm from input of the data to a match between two persons. Afterwards, I took a look at the ethical components which could be inferred from the article and tried to incorporate these into the DAG.
+I decided to start creating the DAG by modelling the general steps of the Breeze algorithm from input of the data to a match between two persons. Afterwards, I took a look at the ethical components which could be inferred from the article and tried to incorporate these into the DAG.
 
 Trying to incorporate these steps helped me to think more about ethical components of technological applications throughout an entire process of development and post application go-live.
+
+![Directed Acyclic Graph](DAG.png "DAG Breeze App")
 
 ## Advise
 
 My advise, to a data scientist who is involved in such a project, would be to carefully consider the ethical implications up front. When we’re dealing with bias, unfair treatment, or other equally heavy ethical harms, we’re dealing with them on an individual level as well which could emotionally damage the involved individual.
-
----
-*Figure 0.1 - DAG Breeze App*
