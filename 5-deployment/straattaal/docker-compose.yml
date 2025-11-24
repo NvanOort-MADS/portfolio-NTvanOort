@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  straattaal:
+    build: .
+    image: straattaal:latest
+    container_name: straattaal
+    ports:
+      - "80:80"
+    restart: unless-stopped
+
