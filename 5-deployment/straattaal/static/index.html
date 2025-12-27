@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>'n Moaker van 'Brabantse' wôordjes</title>
+    <link rel="stylesheet" href="static/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="app-container">
+      <header class="app-header">
+        <div class="logo-wrapper">
+            <svg class="worstebroodje-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <!-- Worstebroodje -->
+                <ellipse cx="50" cy="45" rx="40" ry="25" fill="#D4A574" stroke="#B8956A" stroke-width="2"/>
+                <ellipse cx="50" cy="50" rx="42" ry="26" fill="#E8C9A0" stroke="#D4A574" stroke-width="1.5"/>
+                <!-- Worst -->
+                <ellipse cx="50" cy="50" rx="28" ry="10" fill="#8B4513"/>
+                <ellipse cx="50" cy="50" rx="25" ry="8" fill="#A0522D"/>
+                <!-- Sesamzaadjes -->
+                <circle cx="35" cy="40" r="2.5" fill="#F5DEB3"/>
+                <circle cx="65" cy="40" r="2.5" fill="#F5DEB3"/>
+                <circle cx="30" cy="50" r="2" fill="#F5DEB3"/>
+                <circle cx="70" cy="50" r="2" fill="#F5DEB3"/>
+                <circle cx="40" cy="60" r="2.5" fill="#F5DEB3"/>
+                <circle cx="60" cy="60" r="2.5" fill="#F5DEB3"/>
+              </svg>
+        </div>
+        <h1>'n Moaker van 'Brabantse' wôordjes</h1>
+        <p class="subtitle">Genereer authentieke Brabantse straattaal</p>
+      </header>
+      
+      <main class="app-content">
+        <div class="controls-section">
+          <div class="input-group">
+            <label for="num_words">Aantal woorden</label>
+            <div class="number-input-wrapper">
+                <button type="button" class="number-btn" onclick="adjustNumber(-1)">-</button>
+                <input type="number" id="num_words" value="10" min="1" max="50" readonly>
+                <button type="button" class="number-btn" onclick="adjustNumber(1)">+</button>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <div class="label-row">
+                <label for="temperature">Creativiteit</label>
+                <span id="temp-display">Gebalanceerd (1.0)</span>
+            </div>
+            <input 
+              type="range" 
+              id="temperature" 
+              min="0.1" 
+              max="2.0" 
+              step="0.1" 
+              value="1.0"
+              oninput="updateTempDisplay(this.value)"
+            >
+            <div class="range-labels">
+                <span>Strak</span>
+                <span>Wild</span>
+            </div>
+          </div>
+
+          <button id="generate-btn" class="btn-primary">
+            GENEREER
+          </button>
+        </div>
+
+        <div class="results-section">
+            <div id="words-container" class="words-grid">
+                <div class="placeholder-state">
+                    <p>Klik op genereren om te beginnen!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="favorites-section">
+            <h3>Favorieten <span id="fav-count">(0)</span></h3>
+            <div id="starred-container" class="favorites-list">
+                <p class="empty-text">Nog geen favorieten</p>
+            </div>
+        </div>
+      </main>
+    </div>
+
+    <script>
+        let starredWords = [];
+
+        function adjustNumber(delta) {
+            const input = document.getElementById('num_words');
+            let val = parseInt(input.value) + delta;
+            if (val < 1) val = 1;
+            if (val > 50) val = 50;
+            input.value = val;
+        }
+
+        function updateTempDisplay(val) {
+            const display = document.getElementById('temp-display');
+            let text = "";
+            val = parseFloat(val);
+            if (val < 0.6) text = "Strak";
+            else if (val < 1.4) text = "Gebalanceerd";
+            else text = "Creatief/Wild";
+            display.textContent = `${text} (${val.toFixed(1)})`;
+        }
+
+        function updateStarredUI() {
+            const container = document.getElementById('starred-container');
+            const countSpan = document.getElementById('fav-count');
+            container.innerHTML = '';
+            countSpan.textContent = `(${starredWords.length})`;
+
+            if (starredWords.length === 0) {
+                container.innerHTML = '<p class="empty-text">Nog geen favorieten</p>';
+                return;
+            }
+
+            starredWords.forEach(word => {
+                const tag = document.createElement('span');
+                tag.className = 'fav-tag';
+                tag.textContent = word;
+                tag.title = "Klik om te verwijderen";
+                tag.onclick = () => {
+                    toggleStar(word);
+                };
+                container.appendChild(tag);
+            });
+        }
+
+        function toggleStar(word, element) {
+            const idx = starredWords.indexOf(word);
+            if (idx === -1) {
+                starredWords.push(word);
+                if (element) element.classList.add('starred');
+            } else {
+                starredWords.splice(idx, 1);
+                if (element) element.classList.remove('starred');
+                
+                // Also update any generated word elements if they exist
+                const generatedEls = document.querySelectorAll('.word-card');
+                generatedEls.forEach(el => {
+                    if (el.textContent === word) el.classList.remove('starred');
+                });
+            }
+            updateStarredUI();
+        }
+
+        document.getElementById('generate-btn').addEventListener('click', async () => {
+            const btn = document.getElementById('generate-btn');
+            const num = document.getElementById('num_words').value;
+            const temp = document.getElementById('temperature').value;
+            
+            btn.disabled = true;
+            btn.textContent = 'Bezig...';
+            
+            try {
+                const res = await fetch(`/generate?num_words=${num}&temperature=${temp}`);
+                const words = await res.json();
+                
+                const container = document.getElementById('words-container');
+                container.innerHTML = '';
+                
+                if (!words || words.length === 0) {
+                    container.innerHTML = '<p class="empty-text">Geen woorden gevonden.</p>';
+                    return;
+                }
+
+                words.forEach((word, i) => {
+                    const card = document.createElement('div');
+                    card.className = 'word-card';
+                    if (starredWords.includes(word)) card.classList.add('starred');
+                    card.textContent = word;
+                    card.style.animationDelay = `${i * 0.05}s`;
+                    card.onclick = () => toggleStar(word, card);
+                    container.appendChild(card);
+                });
+
+            } catch (err) {
+                console.error(err);
+                alert('Er ging iets mis bij het genereren.');
+            } finally {
+                btn.disabled = false;
+                btn.textContent = 'GENEREER';
+            }
+        });
+    </script>
+  </body>
+</html>
