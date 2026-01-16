@@ -17,3 +17,5 @@ Trying to incorporate these steps helped me to think more about ethical componen
 ## Advise
 
 My advise, to a data scientist who is involved in such a project, would be to carefully consider the ethical implications up front. When we’re dealing with bias, unfair treatment, or other equally heavy ethical harms, we’re dealing with them on an individual level as well which could emotionally damage the involved individual.
+
+[Go back to Homepage](../README.md)
