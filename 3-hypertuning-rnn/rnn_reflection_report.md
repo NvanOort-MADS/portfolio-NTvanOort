@@ -1,4 +1,4 @@
-# Summary week 3
+# Recurrent Neural Network
 For this exercise I followed the same pattern as for previous exercises. Starting with running a baseline.
 
 ## Baseline - GRU
@@ -17,6 +17,7 @@ A GRU architecture combined with a Transformers attention mechanism. I was wonde
 
 # Closing remarks
 Since the baseline already used a GRU architecture, it was not necessary to test a LSTM as it takes longer to compute and only has some more benefit for longer sequences. Also the width and depth remained untouched as I didn't see the need to do so with already achieving 97%, but that could be shortsighted from my end.
+Lastly, I also considered the Conv1D option, but since the sequence is not that large (~30) it probably wouldn't add that much benefit of implementing it for the extra complexity. 
 
 Find the [notebook](./notebook.ipynb) and the [instructions](./instructions.md)
 

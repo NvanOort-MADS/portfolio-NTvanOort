@@ -6,28 +6,17 @@ This website is built automatically using GitHub Pages. The main page you're rea
 
 ## Table of Contents
 
-1.  **[Hyperparameter gridsearch](./1-hypertuning-gridsearch/summary.md)**
-    * Summary of the first week
-1.  **[Hyperparameter mlflow](./2-hypertuning-mlflow/summary.md)**
-    * Summary of the second week
-1.  **[Hyperparameter rnn](./3-hypertuning-rnn/summary.md)**
-    * Summary of the third week
+1.  **[Hyperparameter gridsearch](./1-hypertuning-gridsearch/nn_reflection_report.md)**
+    * Exercise about tuning a Neural Network
+1.  **[Hyperparameter mlflow](./2-hypertuning-mlflow/cnn_reflection_report.md)**
+    * Exercise about tuning a Convolutional Neural Network
+1.  **[Hyperparameter rnn](./3-hypertuning-rnn/rnn_reflection_report.md)**
+    * Exercise about tuning a (variant of) Recurrent Neural Network
 1.  **[Hyperparameter ray](./4-hypertuning-ray/summary.md)**
-    * A summary of my findings from tuning a Random Forest Classifier.
-1.  **[Hackathon Model: Project Cuddlefish](./6-hackathon/project_cuddlefish.md)**
-    * Our award-winning model that predicts the optimal camouflage pattern for a cuttlefish based on its environment.
+    * ❌ Not completed
+1.  **[Hackathon Model: Kadaster Legal facts](./6-hackathon/hackathon.md)**
+    * Link to the Surferboys Git repo for our version of the Regex, Nebius & LLM (Zero-Shot learning) combination
 1.  **[deployment](./5-deployment/summary.md)**
-    * The result of my own deployment
-1.  **[Ethical Reflection: The Cuddlefish Dilemma](./7-ethics/summary.md)**
-    * A critical analysis of the ethical implications of AI-driven camouflage.
-
-
-## How to setup your own portfolio
-- fork this repo
-- go to the **settings** tab on top of your github page
-- on the left-hand menu, click on **Pages**
-- under build and deployment, select `deploy from a branch`
-- select main/root and save
-
-After a few minutes you will see the site is published.
-
+    * The result of my own deployment app about generating words in Brabant dialect
+1.  **[Ethical Reflection: Discriminitive Dating Algoritms](./7-ethics/discriminative_dating_algorithms.md)**
+    **[Ethical Reflection: Ethical Models](./7-ethics/ethical_models.md)**

@@ -1,0 +1,17 @@
+[project]
+name = "hypertuning-ray"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "ipykernel>=6.30.1",
+    "loguru>=0.7.3",
+    "mads-datasets>=0.3.14",
+    "matplotlib>=3.10.6",
+    "mltrainer>=0.2.5",
+    "ray[tune]>=2.49.0",
+    "seaborn>=0.13.2",
+    "torch>=2.5.1",
+    "torchvision>=0.20.1",
+]

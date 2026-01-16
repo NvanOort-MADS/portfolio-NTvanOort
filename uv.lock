@@ -6,6 +6,12 @@ resolution-markers = [
     "python_full_version < '3.14'",
 ]
 
+[manifest]
+members = [
+    "hypertuning-ray",
+    "portfolio-example",
+]
+
 [[package]]
 name = "absl-py"
 version = "2.3.1"
@@ -921,6 +927,35 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/58/75/0c4712e3f3a21c910778b8f9f4622601a823cefcae24181467674a0352f9/hyperopt-0.2.7.tar.gz", hash = "sha256:1bf89ae58050bbd32c7307199046117feee245c2fd9ab6255c7308522b7ca149", size = 1308240, upload-time = "2021-11-17T10:05:51.386Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/b6/cd/5b3334d39276067f54618ce0d0b48ed69d91352fbf137468c7095170d0e5/hyperopt-0.2.7-py2.py3-none-any.whl", hash = "sha256:f3046d91fe4167dbf104365016596856b2524a609d22f047a066fc1ac796427c", size = 1583421, upload-time = "2021-11-17T10:05:44.265Z" },
+]
+
+[[package]]
+name = "hypertuning-ray"
+version = "0.1.0"
+source = { virtual = "4-hypertuning-ray" }
+dependencies = [
+    { name = "ipykernel" },
+    { name = "loguru" },
+    { name = "mads-datasets" },
+    { name = "matplotlib" },
+    { name = "mltrainer" },
+    { name = "ray", extra = ["tune"] },
+    { name = "seaborn" },
+    { name = "torch" },
+    { name = "torchvision" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "ipykernel", specifier = ">=6.30.1" },
+    { name = "loguru", specifier = ">=0.7.3" },
+    { name = "mads-datasets", specifier = ">=0.3.14" },
+    { name = "matplotlib", specifier = ">=3.10.6" },
+    { name = "mltrainer", specifier = ">=0.2.5" },
+    { name = "ray", extras = ["tune"], specifier = ">=2.49.0" },
+    { name = "seaborn", specifier = ">=0.13.2" },
+    { name = "torch", specifier = ">=2.5.1", index = "https://download.pytorch.org/whl/cu121" },
+    { name = "torchvision", specifier = ">=0.20.1", index = "https://download.pytorch.org/whl/cu121" },
 ]
 
 [[package]]

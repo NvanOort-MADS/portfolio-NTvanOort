@@ -30,6 +30,11 @@ torch = { index = "pytorch" }
 torchvision = { index = "pytorch" }
 torchaudio = { index = "pytorch" }
 
+[tool.uv.workspace]
+members = [
+    "4-hypertuning-ray",
+]
+
 [dependency-groups]
 dev = [
     "notebooktester>=0.2.1",
