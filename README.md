@@ -15,7 +15,7 @@ This website is built automatically using GitHub Pages. The main page you're rea
 1.  **[Hyperparameter ray](./4-hypertuning-ray/summary.md)**
     * ❌ Not completed
 1.  **[Hackathon Model: Kadaster Legal facts](./6-hackathon/hackathon.md)**
-    * Link to the Surferboys Git repo for our version of the Regex, Nebius & LLM (Zero-Shot learning) combination
+    * Link to the Serverboys Git repo for our version of the Regex, Nebius & LLM (Zero-Shot learning) combination
 1.  **[deployment](./5-deployment/deployment_app_link.md)**
     * The result of my own deployment app about generating words in Brabant dialect
 1.  **Ethics**
