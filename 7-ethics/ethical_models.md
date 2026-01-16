@@ -28,3 +28,5 @@ Whilst both models encourage to think deeply about the choices being made in the
 As innovation is as unstoppable as ever, and with technology improving faster and faster, I think that the VSD model should be applied mainly when an entirely new technology is emerging. As this is uncharted territory for everybody, nobody knows the full extent of potential problems it brings along. Because one thing is certain, innovation is paired with new problems.
 
 With competition all around us, new technologies will be tested and improved upon and I think that at this point it is suited to use the TICT for evaluating the slightly different solution as it has a foundation from the totally new innovation and thus the problems that arise should already be known. Therefore, it should be relatively easier to try and evaluate afterwards.
+
+[Go back to Homepage](../README.md)
