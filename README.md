@@ -19,5 +19,5 @@ This website is built automatically using GitHub Pages. The main page you're rea
 1.  **[deployment](./5-deployment/summary.md)**
     * The result of my own deployment app about generating words in Brabant dialect
 1.  **Ethics**
-   2.  [Ethical Reflection: Discriminitive Dating Algoritms](./7-ethics/discriminative_dating_algorithms.md)
-   2.  [Ethical Reflection: Ethical Models](./7-ethics/ethical_models.md)
+   -  [Ethical Reflection: Discriminitive Dating Algoritms](./7-ethics/discriminative_dating_algorithms.md)
+   -  [Ethical Reflection: Ethical Models](./7-ethics/ethical_models.md)
